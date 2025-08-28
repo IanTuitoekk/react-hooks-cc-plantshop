@@ -1,17 +1,17 @@
 import React from "react";
 
 function PlantCard({ plant, onToggleSoldOut }) {
-   if (!plant) return null;
-   const { id, name, image, price, soldOut } = plant
+  if (!plant) return null;
+  const { id, name, image, price, soldOut } = plant;
 
-    const handleToggle = () => {
+  const handleToggle = () => {
     if (onToggleSoldOut) {
       onToggleSoldOut(id);
     }
   };
 
   const formatPrice = (price) => {
-    if (typeof price === 'number') {
+    if (typeof price === "number") {
       // For whole numbers like 55, don't add decimal places
       return price % 1 === 0 ? price.toString() : price.toString();
     }
@@ -28,9 +28,7 @@ function PlantCard({ plant, onToggleSoldOut }) {
           In Stock
         </button>
       ) : (
-        <button onClick={handleToggle}>
-          Out of Stock
-        </button>
+        <button onClick={handleToggle}>Out of Stock</button>
       )}
     </li>
   );

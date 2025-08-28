@@ -4,20 +4,20 @@ function NewPlantForm({ onAddPlant }) {
   const [formData, setFormData] = useState({
     name: "",
     image: "",
-    price: ""
+    price: "",
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prevData => ({
+    setFormData((prevData) => ({
       ...prevData,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     // Validate form data
     if (!formData.name || !formData.image || !formData.price) {
       alert("Please fill in all fields");
@@ -27,7 +27,7 @@ function NewPlantForm({ onAddPlant }) {
     const newPlant = {
       name: formData.name,
       image: formData.image,
-      price: formData.price 
+      price: formData.price,
     };
 
     if (onAddPlant) {
@@ -38,33 +38,33 @@ function NewPlantForm({ onAddPlant }) {
     setFormData({
       name: "",
       image: "",
-      price: ""
+      price: "",
     });
   };
 
   return (
-     <div className="new-plant-form">
+    <div className="new-plant-form">
       <h2>New Plant</h2>
       <form onSubmit={handleSubmit}>
-        <input 
-          type="text" 
-          name="name" 
-          placeholder="Plant name" 
+        <input
+          type="text"
+          name="name"
+          placeholder="Plant name"
           value={formData.name}
           onChange={handleChange}
         />
-        <input 
-          type="text" 
-          name="image" 
-          placeholder="Image URL" 
+        <input
+          type="text"
+          name="image"
+          placeholder="Image URL"
           value={formData.image}
           onChange={handleChange}
         />
-        <input 
-          type="number" 
-          name="price" 
-          step="0.01" 
-          placeholder="Price" 
+        <input
+          type="number"
+          name="price"
+          step="0.01"
+          placeholder="Price"
           value={formData.price}
           onChange={handleChange}
         />
